@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
-import 'package:provider/provider.dart';
+import 'package:he_brew_app/provider/favorite_provider.dart';
 
-class Favorite extends StatefulWidget {
-  const Favorite({super.key});
+class FavoriteScreen extends StatefulWidget {
+  const FavoriteScreen({super.key});
 
   @override
-  State<Favorite> createState() => _FavoriteState();
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-class _FavoriteState extends State<Favorite> {
+class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = FavoriteProvider.of(context);
     final finalList = provider.favorites;
     return Scaffold(
-      backgroundColor: kcontentColor,
+      backgroundColor: contentColor,
       appBar: AppBar(
-        backgroundColor: kcontentColor,
+        backgroundColor: contentColor,
         title: const Text(
-          "Favorite",
+          "Favorites",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -49,7 +49,7 @@ class _FavoriteState extends State<Favorite> {
                                   width: 85,
                                   height: 85,
                                   decoration: BoxDecoration(
-                                    color: kcontentColor,
+                                    color: contentColor,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Image.asset(favoriteItems.image),
@@ -76,7 +76,7 @@ class _FavoriteState extends State<Favorite> {
                                     ),
                                     const SizedBox(height: 10),
                                     Text(
-                                      "\$${favoriteItems.price}",
+                                      "₱${favoriteItems.price}.00",
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
@@ -90,13 +90,12 @@ class _FavoriteState extends State<Favorite> {
                         ),
                         // for delete button
                         Positioned(
-                          top: 50,right: 35,
+                          top: 50,
+                          right: 35,
                           child: GestureDetector(
                             onTap: () {
                               finalList.removeAt(index);
-                              setState(() {
-                                
-                              });
+                              setState(() {});
                             },
                             child: const Icon(
                               Icons.delete,

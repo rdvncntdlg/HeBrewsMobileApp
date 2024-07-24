@@ -1,6 +1,7 @@
 import 'package:he_brew_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/screens/cart/carts_screen.dart';
+import 'package:he_brew_app/screens/favorite/favorite.dart';
 import 'package:he_brew_app/screens/home/home_screen.dart';
 import 'package:he_brew_app/screens/history/order_history.dart';
 
@@ -15,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentInd = 0;
   List screens = const [
     HomeScreen(),
-    Scaffold(),
+    FavoriteScreen(),
     CartScreen(),
     HistoryScreen(),
     Scaffold(),

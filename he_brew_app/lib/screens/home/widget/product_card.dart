@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/constants.dart';
 import 'package:he_brew_app/models/product_model.dart';
 import 'package:he_brew_app/screens/detail/detail_screen.dart';
 
@@ -65,7 +64,7 @@ class ProductCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
-                    "₱${product.price}",
+                    "₱${product.price}.00",
                     style: const TextStyle(
                       fontSize: 17,
                     ),
