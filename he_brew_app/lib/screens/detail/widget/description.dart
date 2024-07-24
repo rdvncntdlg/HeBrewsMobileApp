@@ -29,7 +29,7 @@ class Description extends StatelessWidget {
           description,
           style: const TextStyle(
             fontSize: 16,
-            color: Colors.grey,
+            color: primaryColor,
           ),
         ),
       ],
