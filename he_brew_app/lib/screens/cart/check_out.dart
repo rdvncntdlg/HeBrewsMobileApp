@@ -23,7 +23,7 @@ class CheckOutBox extends StatelessWidget {
         children: [
           const Center(
             child: Text(
-              "Order Summary",
+              "Summary",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
           ),
