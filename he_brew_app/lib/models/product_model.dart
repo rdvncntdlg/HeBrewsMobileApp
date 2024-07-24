@@ -43,7 +43,7 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Mango Cheesecake",
-      description: "Lorem Ipsum",
+      description: "A creamy milkshake blending mango and cheesecake flavors.",
       image: "images/milkshakes/mango_cheesecake.png",
       review: " (267 Reviews)",
       price: 149,
@@ -52,7 +52,7 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Green Apple",
-      description: "Lorem Ipsum",
+      description: "A crisp and refreshing green apple flavored slush.",
       image: "images/fruit_slush/green_apple.png",
       review: " (286 Reviews)",
       price: 129,
@@ -61,7 +61,8 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Blue Lychee",
-      description: "Lorem Ipsum",
+      description:
+          "A unique slush combining blue raspberry and lychee flavors.",
       image: "images/fruit_slush/blue_lychee.png",
       review: " (261 Reviews)",
       price: 129,
@@ -70,7 +71,8 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Cordon Bleu",
-      description: "Lorem Ipsum",
+      description:
+          "A classic dish of breaded chicken stuffed with ham and cheese, served with rice.",
       image: "images/big_plates/cordon_bleu.png",
       review: " (365 Reviews)",
       price: 219,
@@ -79,7 +81,7 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Chicken Wings",
-      description: "Lorem Ipsum",
+      description: "Juicy and crispy chicken wings, served with rice.",
       image: "images/big_plates/chicken_wings.png",
       review: " (304 Reviews)",
       price: 219,
@@ -88,7 +90,8 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Nachos",
-      description: "Lorem Ipsum",
+      description:
+          "Crispy tortilla chips topped with melted cheese, jalapeños, and salsa.",
       image: "images/snacks/nachos.png",
       review: " (442 Reviews)",
       price: 179,
@@ -97,7 +100,7 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "Fries Overload",
-      description: "Lorem Ipsum",
+      description: "Generous serving of fries loaded with cheese and toppings.",
       image: "images/snacks/fries_overload.png",
       review: " (305 Reviews)",
       price: 199,
@@ -106,7 +109,8 @@ final List<Product> bestSellers = [
       quantity: 1),
   Product(
       title: "He Brews Sandwich",
-      description: "Lorem Ipsum",
+      description:
+          "The restaurant's signature sandwich with a unique blend of ingredients.",
       image: "images/sandwiches/he_brews_sandwich.png",
       review: " (503 Reviews)",
       price: 199,
