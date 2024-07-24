@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
         ),
         title: const Text(
           'Login',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
         ),
       ),
       body: Container(
@@ -76,7 +76,8 @@ class LoginScreen extends StatelessWidget {
                             Text(
                               'HE BREWS',
                               style: TextStyle(
-                                fontSize: 30,
+                                fontFamily: 'Poppins',
+                                fontSize: 25,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -84,7 +85,8 @@ class LoginScreen extends StatelessWidget {
                             Text(
                               'CAFE',
                               style: TextStyle(
-                                fontSize: 30,
+                                fontFamily: 'Poppins',
+                                fontSize: 25,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -119,6 +121,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 labelText: 'Username',
                                 labelStyle: TextStyle(
+                                  fontFamily: 'Poppins',
                                   fontWeight: FontWeight.bold,
                                   color: primaryColor,
                                 ),
@@ -134,6 +137,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 labelText: 'Password',
                                 labelStyle: TextStyle(
+                                  fontFamily: 'Poppins',
                                   fontWeight: FontWeight.bold,
                                   color: primaryColor,
                                 ),
@@ -166,8 +170,9 @@ class LoginScreen extends StatelessWidget {
                                 child: const Text(
                                   'Forgot Password?',
                                   style: TextStyle(
+                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 12,
+                                    fontSize: 13,
                                     color: Colors.grey,
                                   ),
                                 ),
@@ -186,8 +191,9 @@ class LoginScreen extends StatelessWidget {
                                   child: Text(
                                     'LOG IN',
                                     style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15,
+                                      fontSize: 25,
                                       color: contentColor,
                                     ),
                                   ),
@@ -204,6 +210,7 @@ class LoginScreen extends StatelessWidget {
                                   const Text(
                                     "Don't have an account?",
                                     style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.grey,
                                     ),
@@ -216,8 +223,9 @@ class LoginScreen extends StatelessWidget {
                                     child: const Text(
                                       "Sign up",
                                       style: TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 15,
+                                        fontSize: 25,
                                         color: Colors.black,
                                       ),
                                     ),

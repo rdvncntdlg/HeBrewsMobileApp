@@ -26,7 +26,11 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 30),
             const Text(
               'Welcome To Hebrews Cafe',
-              style: TextStyle(fontSize: 30, color: Colors.white),
+              style: TextStyle(
+              fontFamily: 'Poppins', 
+              fontSize: 25, 
+              color: Colors.white
+              fontFamily: 'Poppins',),
             ),
             const SizedBox(height: 30),
             GestureDetector(
@@ -35,7 +39,7 @@ class WelcomeScreen extends StatelessWidget {
               },
               child: Container(
                 height: 53,
-                width: 320,
+                width: 300,
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(30),
@@ -45,7 +49,8 @@ class WelcomeScreen extends StatelessWidget {
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontFamily: 'Poppins',
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -70,7 +75,8 @@ class WelcomeScreen extends StatelessWidget {
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontFamily: 'Poppins',
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),

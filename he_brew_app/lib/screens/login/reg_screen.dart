@@ -72,7 +72,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
           const Text(
             'Create Your Account',
             style: TextStyle(
-              fontSize: 20,
+              fontFamily: 'Poppins',
+              fontSize: 25,
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
@@ -179,8 +180,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
             child: const Text(
               'SIGN UP',
               style: TextStyle(
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 25,
                 color: Colors.white,
               ),
             ),
