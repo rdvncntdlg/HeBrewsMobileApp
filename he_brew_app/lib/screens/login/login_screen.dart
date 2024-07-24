@@ -1,10 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:he_brew_app/constants.dart';
 import 'package:he_brew_app/screens/nav_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
+    bool isValid() {
+      return usernameController.text.isNotEmpty &&
+          passwordController.text.isNotEmpty;
+    }
+
+    void signIn() {
+      if (isValid()) {
+        Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Error'),
+              content: const Text('Please enter both username and password.'),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -12,7 +46,7 @@ class LoginScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushReplacementNamed(context, '/');
           },
         ),
         title: const Text(
@@ -37,8 +71,7 @@ class LoginScreen extends StatelessWidget {
                           height: 150.0,
                           width: 150.0,
                         ),
-                        SizedBox(
-                            width: 20), // Add spacing between image and text
+                        SizedBox(width: 20),
                         Column(
                           children: [
                             Text(
@@ -62,7 +95,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 30),
                   Expanded(
                     child: Container(
                       decoration: const BoxDecoration(
@@ -73,104 +106,126 @@ class LoginScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15.0, vertical: 20.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const TextField(
-                              decoration: InputDecoration(
+                            TextField(
+                              controller: usernameController,
+                              decoration: const InputDecoration(
                                 suffixIcon: Icon(
                                   Icons.check,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: primaryColor,
                                 ),
                                 labelText: 'Username',
                                 labelStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: primaryColor,
                                 ),
                               ),
                             ),
-                            const TextField(
-                              decoration: InputDecoration(
+                            TextField(
+                              controller: passwordController,
+                              obscureText: true,
+                              decoration: const InputDecoration(
                                 suffixIcon: Icon(
                                   Icons.visibility_off,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: primaryColor,
                                 ),
                                 labelText: 'Password',
                                 labelStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: primaryColor,
                                 ),
                               ),
                             ),
                             const SizedBox(height: 10),
-                            const Align(
+                            Align(
                               alignment: Alignment.centerRight,
-                              child: Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Color(0xff281537),
+                              child: TextButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text('Forgot Password'),
+                                        content:
+                                            const Text('Enter your email.'),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: const Text('OK'),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: const Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 30),
-                            Center(
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const BottomNavBar()),
-                                  );
-                                },
-                                child: Container(
-                                  height: 45,
-                                  width: 230,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: Colors.black,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'SIGN IN',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
+                            GestureDetector(
+                              onTap: signIn,
+                              child: Container(
+                                height: 45,
+                                width: 230,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: primaryColor,
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    'LOG IN',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: contentColor,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 100),
-                            const Align(
-                              alignment: Alignment.bottomRight,
+                            const SizedBox(height: 20),
+                            Align(
+                              alignment: Alignment.center,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    "Don't have account?",
+                                  const Text(
+                                    "Don't have an account?",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.grey,
                                     ),
                                   ),
-                                  Text(
-                                    "Sign up",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Colors.black,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushReplacementNamed(
+                                          context, '/signup');
+                                    },
+                                    child: const Text(
+                                      "Sign up",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/screens/login/regScreen.dart';
+import 'package:he_brew_app/screens/login/reg_screen.dart';
 import 'login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -11,14 +11,14 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.black,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
               child: Image(
                 image: AssetImage('images/login/logos.jpg'),
                 height: 200.0,
@@ -33,8 +33,7 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 30),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const LoginScreen()));
+                Navigator.pushReplacementNamed(context, '/login');
               },
               child: Container(
                 height: 53,
@@ -44,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: Colors.white),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
@@ -59,8 +58,7 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 30),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const RegScreen()));
+                Navigator.pushReplacementNamed(context, '/signup');
               },
               child: Container(
                 height: 53,
@@ -70,7 +68,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: Colors.black),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(
