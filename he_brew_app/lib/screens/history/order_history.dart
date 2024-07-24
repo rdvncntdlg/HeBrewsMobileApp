@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'sample_data.dart';
+
+class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Order History'),
+      ),
+      body: ListView.builder(
+        itemCount: sampleHistory.length,
+        itemBuilder: (context, index) {
+          final item = sampleHistory[index];
+          return Card(
+            margin: const EdgeInsets.all(8.0),
+            child: ListTile(
+              title: Text(item.orderDetails),
+              subtitle: Text(item.date),
+              trailing: Text(
+                '₱${item.amount.toStringAsFixed(2)}',
+                style: const TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

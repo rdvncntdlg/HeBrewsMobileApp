@@ -4,6 +4,8 @@ import 'package:he_brew_app/provider/favorite_provider.dart';
 import 'screens/nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
+import 'package:he_brew_app/screens/login/welcomeScreen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -25,7 +27,7 @@ class MainApp extends StatelessWidget {
           theme: ThemeData(
             textTheme: GoogleFonts.mulishTextTheme(),
           ),
-          home: const BottomNavBar(),
+          home: const WelcomeScreen(),
         ),
       );
 }
