@@ -19,6 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    int crossAxisCount = screenWidth ~/ 200;
+
     List<List<Product>> selectCategories = [
       bestSellers,
       icedDrinks,
@@ -35,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -192,11 +195,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
                     childAspectRatio: 0.75,
                     crossAxisSpacing: 20,
-                    mainAxisSpacing: 20),
+                    mainAxisSpacing: 20,
+                    mainAxisExtent: 300),
                 itemCount: selectCategories[selectedIndex].length,
                 itemBuilder: (context, index) {
                   return ProductCard(
