@@ -4,6 +4,7 @@ import 'package:he_brew_app/screens/cart/carts_screen.dart';
 import 'package:he_brew_app/screens/favorite/favorite.dart';
 import 'package:he_brew_app/screens/home/home_screen.dart';
 import 'package:he_brew_app/screens/history/order_history.dart';
+import 'package:he_brew_app/screens/profile/profile.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -19,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     FavoriteScreen(),
     CartScreen(),
     HistoryScreen(),
-    Scaffold(),
+    ProfileScreen(),
   ];
 
   @override
