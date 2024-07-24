@@ -1,4 +1,6 @@
-import 'package:hebrews_application/Cart/check_out.dart';
+import 'package:he_brew_app/provider/add_to_cart_provider.dart';
+import 'package:he_brew_app/constants.dart';
+import 'package:he_brew_app/screens/cart/check_out.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -30,35 +32,24 @@ class _CartScreenState extends State<CartScreen> {
     }
 
     return Scaffold(
-      backgroundColor: kcontentColor,
-      bottomSheet: CheckOutBox(),
+      backgroundColor: contentColor,
+      bottomSheet: const CheckOutBox(),
       body: SafeArea(
-
           child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
+          const Padding(
+            padding: EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    padding: const EdgeInsets.all(15),
-                  ),
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                  ),
-                ),
-                const Text(
+                Text(
                   "My Cart",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                   ),
                 ),
-                const SizedBox()
+                SizedBox()
               ],
             ),
           ),
@@ -86,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                               width: 90,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: kcontentColor,
+                                color: contentColor,
                               ),
                               // padding: const EdgeInsets.all(20),
                               child: Image.asset(cartItems.image),
@@ -114,7 +105,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
-                                  "\$${cartItems.price}",
+                                  "₱${cartItems.price}",
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
@@ -131,6 +122,35 @@ class _CartScreenState extends State<CartScreen> {
                       right: 35,
                       child: Column(
                         children: [
+                          Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: contentColor,
+                              border: Border.all(
+                                color: Colors.grey.shade400,
+                                width: 2,
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                const SizedBox(width: 10),
+                                producrQuantity(Icons.add, index),
+                                const SizedBox(width: 10),
+                                Text(
+                                  cartItems.quantity.toString(),
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                producrQuantity(Icons.remove, index),
+                                const SizedBox(width: 10),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
                           // for remove items
                           IconButton(
                             onPressed: () {
@@ -144,36 +164,6 @@ class _CartScreenState extends State<CartScreen> {
                               size: 20,
                             ),
                           ),
-                          // for quantity of items
-                          const SizedBox(height: 10),
-                          Container(
-                            height: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: kcontentColor,
-                              border: Border.all(
-                                color: Colors.grey.shade400,
-                                width: 2,
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                const SizedBox(width: 10),
-                                producrQuantity(Icons.add, index),
-                                 const SizedBox(width: 10),
-                                Text(
-                                  cartItems.quantity.toString(),
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                 const SizedBox(width: 10),
-                                producrQuantity(Icons.remove, index),
-                                 const SizedBox(width: 10),
-                              ],
-                            ),
-                          )
                         ],
                       ),
                     ),

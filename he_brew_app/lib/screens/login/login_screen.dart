@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:he_brew_app/screens/nav_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -8,13 +9,13 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           'Login',
           style: TextStyle(color: Colors.white),
         ),
@@ -27,7 +28,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50.0),
               child: Column(
                 children: [
-                  Center(
+                  const Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -61,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   Expanded(
                     child: Container(
                       decoration: const BoxDecoration(
@@ -115,20 +116,32 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 30),
-                            Container(
-                              height: 45,
-                              width: 230,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: Colors.black,
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'SIGN IN',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                    color: Colors.white,
+                            Center(
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BottomNavBar()),
+                                  );
+                                },
+                                child: Container(
+                                  height: 45,
+                                  width: 230,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.black,
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'SIGN IN',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),

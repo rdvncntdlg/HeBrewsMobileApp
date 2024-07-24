@@ -24,7 +24,6 @@ flutter:
   assets:
     - images/
     - images/login/
-    - images/login/icons/
     - images/iced_drinks/
     - images/milkshakes/
     - images/fruit_slush/

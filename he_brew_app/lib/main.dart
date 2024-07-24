@@ -4,7 +4,6 @@ import 'package:he_brew_app/provider/favorite_provider.dart';
 import 'screens/nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/services.dart';
 import 'package:he_brew_app/screens/login/welcomeScreen.dart';
 
 void main() {

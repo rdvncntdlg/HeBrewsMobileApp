@@ -1,5 +1,5 @@
-import 'package:provider/provider.dart';
 import 'package:he_brew_app/constants.dart';
+import 'package:he_brew_app/provider/add_to_cart_provider.dart';
 import 'package:flutter/material.dart';
 
 class CheckOutBox extends StatelessWidget {
@@ -21,38 +21,13 @@ class CheckOutBox extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide.none,
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 5,
-                horizontal: 15,
-              ),
-              filled: true,
-              fillColor: kcontentColor,
-              hintText: "Enter Discount Code",
-              hintStyle: const TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-              ),
-              suffixIcon: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Apply",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: kprimaryColor,
-                  ),
-                ),
-              ),
+          const Center(
+            child: Text(
+              "Order Summary",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -65,7 +40,7 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                "\$${provider.totalPrice()}",
+                "₱${provider.totalPrice()}",
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -87,7 +62,7 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                "\$${provider.totalPrice()}",
+                "₱${provider.totalPrice()}",
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -98,7 +73,7 @@ class CheckOutBox extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: kprimaryColor,
+                backgroundColor: primaryColor,
                 minimumSize: const Size(double.infinity, 55),
               ),
               onPressed: () {},
@@ -115,4 +90,3 @@ class CheckOutBox extends StatelessWidget {
     );
   }
 }
-// now we add the provider and display the total price
