@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/screens/login/reg_screen.dart';
-import 'login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
-import 'package:he_brew_app/screens/nav_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
