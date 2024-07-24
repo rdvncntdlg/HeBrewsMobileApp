@@ -9,30 +9,30 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.black,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Image(
-                image: AssetImage('images/login/logos.jpg'),
+                image: AssetImage('images/login/logo.jpg'),
                 height: 200.0,
                 width: 200.0,
               ),
             ),
-            const SizedBox(height: 30),
-            const Text(
+            SizedBox(height: 30),
+            Text(
               'Welcome To Hebrews Cafe',
               style: TextStyle(
-              fontFamily: 'Poppins', 
-              fontSize: 25, 
-              color: Colors.white
-              fontFamily: 'Poppins',),
+                fontFamily: 'Poppins',
+                fontSize: 25,
+                color: Colors.white,
+              ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/login');
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: Colors.white),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
@@ -58,7 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/signup');
@@ -71,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: Colors.black),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(
