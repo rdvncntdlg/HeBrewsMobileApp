@@ -57,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Best Sellers",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -71,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Iced Drinks",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -85,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Blended Coffee",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -99,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Milkshakes",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -113,6 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Fruit Slush",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -128,6 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Iced Tea",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -142,6 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Big Plates",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -156,6 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Snacks",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -170,6 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Pasta",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -184,6 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       "Sandwiches",
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
                       ),
@@ -255,8 +265,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 5),
                     Text(
                       categoriesList[index].title,
-                      textAlign: TextAlign.center, // Optional, adjust as needed
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: categoriesList[index].size,
                         fontWeight: FontWeight.bold,
                         color: selectedIndex == index

@@ -14,6 +14,7 @@ class ItemsDetails extends StatelessWidget {
         Text(
           product.title,
           style: const TextStyle(
+            fontFamily: 'Poppins',
             fontWeight: FontWeight.w800,
             fontSize: 25,
           ),
@@ -26,6 +27,7 @@ class ItemsDetails extends StatelessWidget {
                 Text(
                   "₱${product.price}",
                   style: const TextStyle(
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
                   ),
@@ -53,6 +55,7 @@ class ItemsDetails extends StatelessWidget {
                           Text(
                             product.rate.toString(),
                             style: const TextStyle(
+                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               fontSize: 14,
@@ -65,6 +68,7 @@ class ItemsDetails extends StatelessWidget {
                     Text(
                       product.review,
                       style: const TextStyle(
+                        fontFamily: 'Poppins',
                         color: Colors.grey,
                         fontSize: 15,
                       ),

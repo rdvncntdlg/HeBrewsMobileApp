@@ -25,7 +25,10 @@ class CheckOutBox extends StatelessWidget {
           const Center(
             child: Text(
               "Summary",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24),
             ),
           ),
           const SizedBox(height: 30),
@@ -35,6 +38,7 @@ class CheckOutBox extends StatelessWidget {
               const Text(
                 "SubTotal",
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   color: Colors.grey,
                   fontSize: 16,
@@ -43,6 +47,7 @@ class CheckOutBox extends StatelessWidget {
               Text(
                 "₱${provider.totalPrice()}",
                 style: const TextStyle(
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -58,6 +63,7 @@ class CheckOutBox extends StatelessWidget {
               const Text(
                 "Total",
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -65,6 +71,7 @@ class CheckOutBox extends StatelessWidget {
               Text(
                 "₱${provider.totalPrice()}",
                 style: const TextStyle(
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -82,7 +89,8 @@ class CheckOutBox extends StatelessWidget {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Confirm Order'),
-                  content: const Text('Are you sure you want to place this order?'),
+                  content:
+                      const Text('Are you sure you want to place this order?'),
                   actions: [
                     TextButton(
                       onPressed: () {
@@ -93,12 +101,14 @@ class CheckOutBox extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         // Generate a random order number for the example
-                        final orderNumber = DateTime.now().millisecondsSinceEpoch.toString();
+                        final orderNumber =
+                            DateTime.now().millisecondsSinceEpoch.toString();
                         Navigator.pop(context); // Close the dialog
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OrderSuccessScreen(orderNumber: orderNumber),
+                            builder: (context) =>
+                                OrderSuccessScreen(orderNumber: orderNumber),
                           ),
                         );
                       },
@@ -111,6 +121,7 @@ class CheckOutBox extends StatelessWidget {
             child: const Text(
               "Order Now",
               style: TextStyle(
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
                 color: Colors.white,

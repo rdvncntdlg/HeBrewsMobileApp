@@ -20,7 +20,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         backgroundColor: contentColor,
         title: const Text(
           "Favorites",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -61,6 +61,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                     Text(
                                       favoriteItems.title,
                                       style: const TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
                                       ),
@@ -69,6 +70,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                     Text(
                                       favoriteItems.category,
                                       style: TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey.shade400,
                                         fontSize: 16,
@@ -78,6 +80,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                     Text(
                                       "₱${favoriteItems.price}.00",
                                       style: const TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
                                       ),
@@ -88,7 +91,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             ),
                           ),
                         ),
-                        // for delete button
                         Positioned(
                           top: 50,
                           right: 35,

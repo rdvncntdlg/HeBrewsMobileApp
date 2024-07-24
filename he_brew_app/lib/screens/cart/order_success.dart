@@ -23,6 +23,7 @@ class OrderSuccessScreen extends StatelessWidget {
               const Text(
                 "Order Success",
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
                 ),
@@ -31,6 +32,7 @@ class OrderSuccessScreen extends StatelessWidget {
               Text(
                 "Your Order Number: $orderNumber",
                 style: const TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 18,
                 ),
               ),

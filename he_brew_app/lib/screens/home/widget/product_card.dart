@@ -56,6 +56,7 @@ class ProductCard extends StatelessWidget {
                   child: Text(
                     product.title,
                     style: const TextStyle(
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w900,
                       fontSize: 16,
                     ),
@@ -66,6 +67,7 @@ class ProductCard extends StatelessWidget {
                   child: Text(
                     "₱${product.price}.00",
                     style: const TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: 17,
                     ),
                   ),

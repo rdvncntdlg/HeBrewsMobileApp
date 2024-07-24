@@ -22,6 +22,7 @@ class HistoryScreen extends StatelessWidget {
               trailing: Text(
                 '₱${item.amount.toStringAsFixed(2)}',
                 style: const TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 15,
                 ),
               ),

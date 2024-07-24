@@ -21,13 +21,17 @@ class Description extends StatelessWidget {
           child: const Text(
             "Description",
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 16),
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 16),
           ),
         ),
         const SizedBox(height: 20),
         Text(
           description,
           style: const TextStyle(
+            fontFamily: 'Poppins',
             fontSize: 16,
             color: primaryColor,
           ),

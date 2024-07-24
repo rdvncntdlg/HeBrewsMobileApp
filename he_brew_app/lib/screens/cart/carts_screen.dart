@@ -45,6 +45,7 @@ class _CartScreenState extends State<CartScreen> {
                 Text(
                   "My Cart",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                   ),
@@ -89,6 +90,7 @@ class _CartScreenState extends State<CartScreen> {
                                 Text(
                                   cartItems.title,
                                   style: const TextStyle(
+                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -99,6 +101,7 @@ class _CartScreenState extends State<CartScreen> {
                                 Text(
                                   cartItems.category,
                                   style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
                                       color: Colors.grey.shade400),
@@ -107,6 +110,7 @@ class _CartScreenState extends State<CartScreen> {
                                 Text(
                                   "₱${cartItems.price}",
                                   style: const TextStyle(
+                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                   ),
@@ -140,6 +144,7 @@ class _CartScreenState extends State<CartScreen> {
                                 Text(
                                   cartItems.quantity.toString(),
                                   style: const TextStyle(
+                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),

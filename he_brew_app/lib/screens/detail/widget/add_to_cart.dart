@@ -47,6 +47,7 @@ class _AddToCartState extends State<AddToCart> {
                 Text(
                   currentIndex.toString(),
                   style: const TextStyle(
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                     color: primaryColor,
                     fontSize: 24,
@@ -81,6 +82,7 @@ class _AddToCartState extends State<AddToCart> {
                   content: Text(
                     "Successfully added!",
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white,
@@ -101,6 +103,7 @@ class _AddToCartState extends State<AddToCart> {
                 child: const Text(
                   "Add to Cart",
                   style: TextStyle(
+                      fontFamily: 'Poppins',
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
