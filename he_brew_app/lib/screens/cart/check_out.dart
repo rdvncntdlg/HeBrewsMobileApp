@@ -9,6 +9,8 @@ class CheckOutBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
+    final isCartEmpty = provider.cart.isEmpty;
+    
     return Container(
       height: 300,
       width: double.infinity,
@@ -45,7 +47,7 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                "₱${provider.totalPrice()}",
+                "₱${provider.totalPrice.toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
@@ -69,7 +71,7 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                "₱${provider.totalPrice()}",
+                "₱${provider.totalPrice.toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
@@ -84,7 +86,9 @@ class CheckOutBox extends StatelessWidget {
               backgroundColor: primaryColor,
               minimumSize: const Size(double.infinity, 55),
             ),
-            onPressed: () {
+            onPressed: isCartEmpty // Disable the button if the cart is empty
+              ? null
+              : () {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
