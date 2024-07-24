@@ -1,6 +1,7 @@
 import 'package:he_brew_app/constants.dart';
 import 'package:he_brew_app/provider/add_to_cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:he_brew_app/screens/cart/order_success.dart'; // Import the OrderSuccessScreen
 
 class CheckOutBox extends StatelessWidget {
   const CheckOutBox({super.key});
@@ -72,19 +73,50 @@ class CheckOutBox extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                minimumSize: const Size(double.infinity, 55),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "Order Now",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.white,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: primaryColor,
+              minimumSize: const Size(double.infinity, 55),
+            ),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Confirm Order'),
+                  content: const Text('Are you sure you want to place this order?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context); // Close the dialog
+                      },
+                      child: const Text('No'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        // Generate a random order number for the example
+                        final orderNumber = DateTime.now().millisecondsSinceEpoch.toString();
+                        Navigator.pop(context); // Close the dialog
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OrderSuccessScreen(orderNumber: orderNumber),
+                          ),
+                        );
+                      },
+                      child: const Text('Yes'),
+                    ),
+                  ],
                 ),
-              ))
+              );
+            },
+            child: const Text(
+              "Order Now",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );
