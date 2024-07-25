@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:he_brew_app/screens/login/login_screen.dart';
 import 'package:he_brew_app/theme.dart';
 import 'package:he_brew_app/screens/profile/widgets/address.dart';
@@ -9,12 +10,47 @@ class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
+
   String _name = 'Sheena Catacutan';
   String _username = '@eyykamuna';
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Initialize the animation controller and slide animation
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 1), // Start from below the screen
+      end: Offset.zero, // End at the original position
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    ));
+
+    // Start the animation
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _animationController.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,76 +64,79 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage('images/profile/sheena.jpg'),
-          ),
-          Text(
-            _name,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            _username,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
-          ),
-          const SizedBox(height: 16),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                _buildFeatureBox(
-                  icon: Icons.payment,
-                  title: 'Payment Methods',
-                  subtitle: 'Manage your payment options',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const PaymentMethodsScreen()));
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildFeatureBox(
-                  icon: Icons.location_on,
-                  title: 'Address',
-                  subtitle: 'Manage your addresses',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AddressScreen()));
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildFeatureBox(
-                  icon: Icons.shopping_bag,
-                  title: 'My Orders',
-                  subtitle: 'View your order history',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OrderScreen()));
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildEditProfileButton(context),
-                const SizedBox(height: 16),
-                _buildFeatureBox(
-                  icon: Icons.logout,
-                  title: 'Log Out',
-                  onTap: () {
-                    _handleLogout(context);
-                  },
-                ),
-              ],
+      body: SlideTransition(
+        position: _slideAnimation,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('images/profile/sheena.jpg'),
             ),
-          ),
-        ],
+            Text(
+              _name,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              _username,
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(16.0),
+                children: [
+                  _buildFeatureBox(
+                    icon: Icons.payment,
+                    title: 'Payment Methods',
+                    subtitle: 'Manage your payment options',
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const PaymentMethodsScreen()));
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildFeatureBox(
+                    icon: Icons.location_on,
+                    title: 'Address',
+                    subtitle: 'Manage your addresses',
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddressScreen()));
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildFeatureBox(
+                    icon: Icons.shopping_bag,
+                    title: 'My Orders',
+                    subtitle: 'View your order history',
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OrderScreen()));
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildEditProfileButton(context),
+                  const SizedBox(height: 16),
+                  _buildFeatureBox(
+                    icon: Icons.logout,
+                    title: 'Log Out',
+                    onTap: () {
+                      _handleLogout(context);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -161,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all<Color>(
-                    Color.fromARGB(255, 0, 0, 0)),
+                    const Color.fromARGB(255, 0, 0, 0)),
                 foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
               ),
               child: const Text('Save'),
@@ -172,7 +211,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all<Color>(
-                    Color.fromARGB(255, 255, 255, 255)),
+                    const Color.fromARGB(255, 255, 255, 255)),
                 foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
               ),
               child: const Text('Cancel'),

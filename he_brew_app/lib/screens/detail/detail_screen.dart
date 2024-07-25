@@ -15,8 +15,46 @@ class DetailScreen extends StatefulWidget {
   State<DetailScreen> createState() => _DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _DetailScreenState extends State<DetailScreen>
+    with SingleTickerProviderStateMixin {
   int currentImage = 0;
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
+  late Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 1),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeOut,
+      ),
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeIn,
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +67,11 @@ class _DetailScreenState extends State<DetailScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               DetailAppBar(product: widget.product),
-              ImageView(
-                image: widget.product.image,
+              Hero(
+                tag: widget.product.image,
+                child: ImageView(
+                  image: widget.product.image,
+                ),
               ),
               Container(
                 width: double.infinity,
@@ -50,18 +91,24 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ItemsDetails(product: widget.product),
+                    SlideTransition(
+                      position: _slideAnimation,
+                      child: ItemsDetails(product: widget.product),
+                    ),
                     const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 100),
-                      color: Colors.transparent,
-                      child: Description(
-                        description: widget.product.description,
+                    FadeTransition(
+                      opacity: _fadeAnimation,
+                      child: Container(
+                        padding: const EdgeInsets.only(bottom: 100),
+                        color: Colors.transparent,
+                        child: Description(
+                          description: widget.product.description,
+                        ),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
