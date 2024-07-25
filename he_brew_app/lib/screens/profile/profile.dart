@@ -56,8 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const PaymentMethodsScreen()),
-                    );
+                       MaterialPageRoute(builder: (context) => const PaymentMethodsScreen()));
                   },
                 ),
                 const SizedBox(height: 16),
@@ -66,20 +65,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Address',
                   subtitle: 'Manage your addresses',
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const AddressScreen()),
-                    );
+                     MaterialPageRoute(builder: (context) => const AddressScreen());
                   },
                 ),
                 const SizedBox(height: 16),
                 _buildFeatureBox(
                   icon: Icons.shopping_bag,
-                  title: 'Active Orders',
-                  subtitle: 'View your active orders',
+                  title: 'My Orders',
+                  subtitle: 'View your order history',
                   onTap: () {
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const OrderScreen()));
+                     MaterialPageRoute(builder: (context) => const OrderScreen());
                   },
                 ),
                 const SizedBox(height: 16),
@@ -89,7 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: Icons.logout,
                   title: 'Log Out',
                   onTap: () {
-                    _LogOut(context);
+                    _handleLogout(context);
                   },
                 ),
               ],
@@ -168,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void _LogOut(BuildContext context) {
+  void _handleLogout(BuildContext context) {
     // Perform any necessary cleanup, such as clearing user data
     // Navigate to the sign-in screen and clear the navigation stack
     Navigator.pushAndRemoveUntil(
