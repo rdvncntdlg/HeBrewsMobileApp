@@ -105,6 +105,7 @@ class CheckOutBox extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
+                              provider.emptyCart();
                               // Generate a random order number for the example
                               final orderNumber = DateTime.now()
                                   .millisecondsSinceEpoch

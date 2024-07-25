@@ -65,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Address',
                   subtitle: 'Manage your addresses',
                   onTap: () {
-                     MaterialPageRoute(builder: (context) => const AddressScreen());
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddressScreen()));
                   },
                 ),
                 const SizedBox(height: 16),
@@ -74,7 +74,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'My Orders',
                   subtitle: 'View your order history',
                   onTap: () {
-                     MaterialPageRoute(builder: (context) => const OrderScreen());
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const OrderScreen()));
+                     
                   },
                 ),
                 const SizedBox(height: 16),

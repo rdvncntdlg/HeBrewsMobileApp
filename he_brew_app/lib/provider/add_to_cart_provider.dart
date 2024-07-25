@@ -35,6 +35,10 @@ class CartProvider extends ChangeNotifier {
     _cart.removeAt(index);
     notifyListeners();
   }
+  
+  void emptyCart(){
+    _cart.clear();
+  }
 
   double get totalPrice {
     double myTotal = 0.00; // initial
