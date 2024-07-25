@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 import 'package:he_brew_app/models/product_model.dart';
 import 'package:he_brew_app/provider/add_to_cart_provider.dart';
-import 'package:he_brew_app/screens/detail/widget/custome_snackbar.dart';
+import 'package:he_brew_app/screens/detail/widget/custom_snackbar.dart';
 
 class AddToCart extends StatefulWidget {
   final Product product;
