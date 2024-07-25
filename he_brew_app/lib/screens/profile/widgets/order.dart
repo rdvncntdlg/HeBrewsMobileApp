@@ -16,7 +16,6 @@ class OrderScreen extends StatelessWidget {
             orderId: 'Order #12345',
             totalAmount: '\$100.00',
             onCancel: () {
-              // Handle cancel order action
               _handleCancelOrder(context, 'Order #12345');
             },
           ),
@@ -25,11 +24,9 @@ class OrderScreen extends StatelessWidget {
             orderId: 'Order #67890',
             totalAmount: '\$50.00',
             onCancel: () {
-              // Handle cancel order action
               _handleCancelOrder(context, 'Order #67890');
             },
           ),
-          // Add more orders as needed
         ],
       ),
     );
@@ -46,12 +43,16 @@ class OrderScreen extends StatelessWidget {
       trailing: ElevatedButton(
         onPressed: onCancel,
         child: const Text('Cancel'),
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(
+              const Color.fromARGB(255, 0, 0, 0)),
+          foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+        ),
       ),
     );
   }
 
   void _handleCancelOrder(BuildContext context, String orderId) {
-    // Show confirmation dialog before cancelling order
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -61,15 +62,25 @@ class OrderScreen extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                // Perform cancel order logic here
                 _performCancelOrder(context, orderId);
               },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all<Color>(
+                    Color.fromARGB(255, 0, 0, 0)),
+                foregroundColor: WidgetStateProperty.all<Color>(
+                    Color.fromARGB(255, 255, 255, 255)),
+              ),
               child: const Text('Yes'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all<Color>(
+                    Color.fromARGB(255, 255, 255, 255)),
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+              ),
               child: const Text('No'),
             ),
           ],
@@ -79,9 +90,6 @@ class OrderScreen extends StatelessWidget {
   }
 
   void _performCancelOrder(BuildContext context, String orderId) {
-    // Add logic to cancel the order (e.g., send cancellation request to backend)
-    // Optionally show a success message or handle navigation as per app flow
-    Navigator.pop(context); // Close the confirmation dialog
-    // You can also update the UI or show a message that the order has been cancelled
+    Navigator.pop(context);
   }
 }

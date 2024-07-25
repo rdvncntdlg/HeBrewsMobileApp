@@ -1,43 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool _isPasswordVisible = false;
+
+  bool isValid() {
+    return usernameController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty;
+  }
+
+  void signIn() {
+    if (isValid()) {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: const Text('Please enter both username and password.'),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController usernameController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-
-    bool isValid() {
-      return usernameController.text.isNotEmpty &&
-          passwordController.text.isNotEmpty;
-    }
-
-    void signIn() {
-      if (isValid()) {
-        Navigator.pushReplacementNamed(context, '/home');
-      } else {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: const Text('Please enter both username and password.'),
-              actions: <Widget>[
-                TextButton(
-                  child: const Text('OK'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -72,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 30.0,
+                    horizontal: 40.0,
                     vertical: 40.0,
                   ),
                   child: Column(
@@ -91,17 +97,26 @@ class LoginScreen extends StatelessWidget {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextFormField(
                         controller: passwordController,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.visibility_off,
-                            color: primaryColor,
+                        obscureText: !_isPasswordVisible,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _isPasswordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: primaryColor,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            },
                           ),
                           labelText: 'Password',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -153,11 +168,11 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: signIn,
                         child: Container(
-                          height: 45,
+                          height: 40,
                           width: 150,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
@@ -169,14 +184,14 @@ class LoginScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 15,
                                 color: contentColor,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Align(
                         alignment: Alignment.center,
                         child: Column(

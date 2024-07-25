@@ -29,7 +29,6 @@ class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _RegistrationFormState createState() => _RegistrationFormState();
 }
 
@@ -43,6 +42,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
       TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
 
   @override
   void dispose() {
@@ -125,10 +127,21 @@ class _RegistrationFormState extends State<RegistrationForm> {
           const SizedBox(height: 10),
           TextFormField(
             controller: _passwordController,
-            obscureText: true,
-            decoration: const InputDecoration(
+            obscureText: !_isPasswordVisible,
+            decoration: InputDecoration(
               labelText: 'Password',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+              ),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -140,10 +153,23 @@ class _RegistrationFormState extends State<RegistrationForm> {
           const SizedBox(height: 10),
           TextFormField(
             controller: _confirmPasswordController,
-            obscureText: true,
-            decoration: const InputDecoration(
+            obscureText: !_isConfirmPasswordVisible,
+            decoration: InputDecoration(
               labelText: 'Confirm Password',
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isConfirmPasswordVisible
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+                  });
+                },
+              ),
             ),
             validator: (value) {
               if (value != _passwordController.text) {

@@ -9,13 +9,12 @@ class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String _name = 'John Doe'; // Example initial values
-  String _username = '@eyykamuna'; // Example initial values
+  String _name = 'Sheena Catacutan';
+  String _username = '@eyykamuna';
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +54,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   subtitle: 'Manage your payment options',
                   onTap: () {
                     Navigator.push(
-                      context,
-                       MaterialPageRoute(builder: (context) => const PaymentMethodsScreen()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const PaymentMethodsScreen()));
                   },
                 ),
                 const SizedBox(height: 16),
@@ -65,7 +66,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Address',
                   subtitle: 'Manage your addresses',
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddressScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AddressScreen()));
                   },
                 ),
                 const SizedBox(height: 16),
@@ -74,12 +78,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'My Orders',
                   subtitle: 'View your order history',
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const OrderScreen()));
-                     
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OrderScreen()));
                   },
                 ),
                 const SizedBox(height: 16),
-                _buildEditProfileButton(context), // Added Edit Profile button
+                _buildEditProfileButton(context),
                 const SizedBox(height: 16),
                 _buildFeatureBox(
                   icon: Icons.logout,
@@ -96,7 +102,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget _buildFeatureBox({required IconData icon, required String title, String? subtitle, required VoidCallback onTap}) {
+  Widget _buildFeatureBox(
+      {required IconData icon,
+      required String title,
+      String? subtitle,
+      required VoidCallback onTap}) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
@@ -111,7 +121,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       icon: Icons.edit,
       title: 'Edit Profile',
       onTap: () {
-        // Show Edit Profile dialog
         _showEditProfileDialog(context);
       },
     );
@@ -119,7 +128,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _showEditProfileDialog(BuildContext context) {
     TextEditingController nameController = TextEditingController(text: _name);
-    TextEditingController usernameController = TextEditingController(text: _username);
+    TextEditingController usernameController =
+        TextEditingController(text: _username);
 
     showDialog(
       context: context,
@@ -141,22 +151,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
           actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Cancel'),
-            ),
             ElevatedButton(
               onPressed: () {
-                // Save changes and update profile details
                 setState(() {
                   _name = nameController.text;
                   _username = usernameController.text;
                 });
-                Navigator.pop(context); // Close the dialog
+                Navigator.pop(context);
               },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all<Color>(
+                    Color.fromARGB(255, 0, 0, 0)),
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+              ),
               child: const Text('Save'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all<Color>(
+                    Color.fromARGB(255, 255, 255, 255)),
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+              ),
+              child: const Text('Cancel'),
             ),
           ],
         );

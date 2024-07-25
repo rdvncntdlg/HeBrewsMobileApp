@@ -18,9 +18,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiProvider(
         providers: [
-          // for add to cart
           ChangeNotifierProvider(create: (_) => CartProvider()),
-          // for favorite
           ChangeNotifierProvider(create: (_) => FavoriteProvider()),
         ],
         child: MaterialApp(
