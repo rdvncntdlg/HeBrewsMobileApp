@@ -30,8 +30,7 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 
 ## Screenshots
 ### Log in
-![Log in](https://drive.google.com/uc?export=view&id=1Ysf0Xpeq6Gp5B6KD2aMdyJ34cT56Jw-M)
-
+![Log in](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/8e12c00344947261c0fbfe05c1d975203a58e9f6/log_in.jfif)
 
 ### Home Page
 ![Home Page](https://github.com/your_username/your_repo/raw/main/he_brew/home_page/jfif)
