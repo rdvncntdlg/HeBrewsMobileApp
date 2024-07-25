@@ -1,4 +1,4 @@
-# Hebrews Mobile App
+# He Brews Mobile App
 
 The Hebrews Mobile App is designed to provide users with a seamless and efficient ordering experience. Whether you're a new user or a returning customer, our app offers a comprehensive set of features to enhance your shopping journey. With an intuitive interface and robust functionality, the Hebrews Mobile App allows you to effortlessly browse products, manage your cart, view order history, and update your profile, including payment methods and addresses.
 
@@ -29,7 +29,7 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 - **Log Out:** Users can log out of their account, which will redirect them to the sign-in screen.
 
 ## Screenshots
-### Log in
+### Log in/Sign up Page
 ![Log in](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/8e12c00344947261c0fbfe05c1d975203a58e9f6/log_in.jfif)
 
 ### Home Page
