@@ -51,177 +51,169 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Container(
         color: primaryColor,
-        child: Stack(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Column(
-                children: [
-                  const Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('images/logo-white.png'),
-                          height: 400.0,
-                          width: 400.0,
-                        ),
-                        SizedBox(width: 20),
-                      ],
-                    ),
+            const Center(
+              child: Image(
+                image: AssetImage('images/logo-white.png'),
+                height: 300.0,
+                width: 300.0,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
-                  Expanded(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0,
+                    vertical: 40.0,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextFormField(
+                        controller: usernameController,
+                        decoration: const InputDecoration(
+                          labelText: 'Username',
+                          border: OutlineInputBorder(),
                         ),
-                        color: Colors.white,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a username';
+                          }
+                          return null;
+                        },
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30.0, vertical: 40.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            TextFormField(
-                              controller: usernameController,
-                              decoration: const InputDecoration(
-                                labelText: 'Username',
-                                border: OutlineInputBorder(),
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a username';
-                                }
-                                return null;
-                              },
-                            ),
-                            const SizedBox(height: 20),
-                            TextFormField(
-                              controller: passwordController,
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                suffixIcon: Icon(
-                                  Icons.visibility_off,
-                                  color: primaryColor,
-                                ),
-                                labelText: 'Password',
-                                border: OutlineInputBorder(),
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a password';
-                                }
-                                return null;
-                              },
-                            ),
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: TextButton(
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                        title: const Text('Forgot Password'),
-                                        content: TextField(
-                                          controller: usernameController,
-                                          decoration: const InputDecoration(
-                                            labelText: 'Email',
-                                            labelStyle: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.bold,
-                                              color: primaryColor,
-                                            ),
-                                          ),
-                                        ),
-                                        actions: <Widget>[
-                                          TextButton(
-                                            child: const Text('OK'),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
-                                child: const Text(
-                                  'Forgot Password?',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            GestureDetector(
-                              onTap: signIn,
-                              child: Container(
-                                height: 45,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: primaryColor,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    'LOG IN',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: contentColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Don't have an account?",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushReplacementNamed(
-                                          context, '/signup');
-                                    },
-                                    child: const Text(
-                                      "Sign up",
-                                      style: TextStyle(
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.visibility_off,
+                            color: primaryColor,
+                          ),
+                          labelText: 'Password',
+                          border: OutlineInputBorder(),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a password';
+                          }
+                          return null;
+                        },
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text('Forgot Password'),
+                                  content: TextField(
+                                    controller: usernameController,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Email',
+                                      labelStyle: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                        color: Colors.black,
+                                        color: primaryColor,
                                       ),
                                     ),
                                   ),
-                                ],
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text('OK'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: signIn,
+                        child: Container(
+                          height: 45,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: primaryColor,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'LOG IN',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: contentColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Don't have an account?",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  '/signup',
+                                );
+                              },
+                              child: const Text(
+                                "Sign up",
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],
