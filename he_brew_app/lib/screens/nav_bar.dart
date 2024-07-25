@@ -71,7 +71,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 });
               },
               icon: Icon(
-                Icons.favorite_border,
+                Icons.favorite,
                 size: 30,
                 color: currentInd == 1 ? primaryColor : Colors.grey.shade400,
               ),
