@@ -28,23 +28,4 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 - **My Orders:** Users can view a summary of their orders.
 - **Log Out:** Users can log out of their account, which will redirect them to the sign-in screen.
 
-## Screenshots
-### Log in/Sign in Page
-![Log in](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/8e12c00344947261c0fbfe05c1d975203a58e9f6/log_in.jfif)
-
-### Home Page
-![Home Page](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/home_page.jfif)
-
-### Favorites
-![Favorites](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/favorites.jfif)
-
-### Cart
-![Cart](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/cart.jfif)
-
-
-### Order History
-![Order History](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/order_history.jfif)
-
-### Profile Management
-![Profile](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/profile.jfif)
 
