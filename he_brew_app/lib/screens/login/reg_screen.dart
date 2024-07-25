@@ -175,14 +175,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
             },
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
-              minimumSize: WidgetStateProperty.all<Size>(const Size(50, 55)),
+              minimumSize: WidgetStateProperty.all<Size>(const Size(50, 60)),
             ),
             child: const Text(
               'SIGN UP',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: 18,
                 color: Colors.white,
               ),
             ),

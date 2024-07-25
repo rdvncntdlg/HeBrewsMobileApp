@@ -81,23 +81,25 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 15.0, vertical: 20.0),
+                            horizontal: 30.0, vertical: 40.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            TextField(
+                            TextFormField(
                               controller: usernameController,
                               decoration: const InputDecoration(
                                 labelText: 'Username',
-                                labelStyle: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
-                                  color: primaryColor,
-                                ),
+                                border: OutlineInputBorder(),
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a username';
+                                }
+                                return null;
+                              },
                             ),
-                            const SizedBox(height: 10),
-                            TextField(
+                            const SizedBox(height: 20),
+                            TextFormField(
                               controller: passwordController,
                               obscureText: true,
                               decoration: const InputDecoration(
@@ -106,14 +108,15 @@ class LoginScreen extends StatelessWidget {
                                   color: primaryColor,
                                 ),
                                 labelText: 'Password',
-                                labelStyle: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
-                                  color: primaryColor,
-                                ),
+                                border: OutlineInputBorder(),
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a password';
+                                }
+                                return null;
+                              },
                             ),
-                            const SizedBox(height: 10),
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
@@ -157,6 +160,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 20),
                             GestureDetector(
                               onTap: signIn,
                               child: Container(
