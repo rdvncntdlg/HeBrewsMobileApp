@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: primaryColor,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: Colors.white,
@@ -48,17 +48,13 @@ class LoginScreen extends StatelessWidget {
             Navigator.pushReplacementNamed(context, '/');
           },
         ),
-        title: const Text(
-          'Login',
-          style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
-        ),
       ),
       body: Container(
-        color: Colors.black,
+        color: primaryColor,
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 5.0),
               child: Column(
                 children: [
                   const Center(
@@ -66,37 +62,14 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
-                          image: AssetImage('images/login/logos.jpg'),
-                          height: 150.0,
-                          width: 150.0,
+                          image: AssetImage('images/logo-white.png'),
+                          height: 400.0,
+                          width: 400.0,
                         ),
                         SizedBox(width: 20),
-                        Column(
-                          children: [
-                            Text(
-                              'HE BREWS',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'CAFE',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30),
                   Expanded(
                     child: Container(
                       decoration: const BoxDecoration(
@@ -115,10 +88,6 @@ class LoginScreen extends StatelessWidget {
                             TextField(
                               controller: usernameController,
                               decoration: const InputDecoration(
-                                suffixIcon: Icon(
-                                  Icons.check,
-                                  color: primaryColor,
-                                ),
                                 labelText: 'Username',
                                 labelStyle: TextStyle(
                                   fontFamily: 'Poppins',
@@ -127,6 +96,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 10),
                             TextField(
                               controller: passwordController,
                               obscureText: true,
@@ -153,8 +123,17 @@ class LoginScreen extends StatelessWidget {
                                     builder: (BuildContext context) {
                                       return AlertDialog(
                                         title: const Text('Forgot Password'),
-                                        content:
-                                            const Text('Enter your email.'),
+                                        content: TextField(
+                                          controller: usernameController,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Email',
+                                            labelStyle: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.bold,
+                                              color: primaryColor,
+                                            ),
+                                          ),
+                                        ),
                                         actions: <Widget>[
                                           TextButton(
                                             child: const Text('OK'),
@@ -182,7 +161,7 @@ class LoginScreen extends StatelessWidget {
                               onTap: signIn,
                               child: Container(
                                 height: 45,
-                                width: 230,
+                                width: 150,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                   color: primaryColor,
@@ -193,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 25,
+                                      fontSize: 18,
                                       color: contentColor,
                                     ),
                                   ),
@@ -225,7 +204,7 @@ class LoginScreen extends StatelessWidget {
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 25,
+                                        fontSize: 14,
                                         color: Colors.black,
                                       ),
                                     ),

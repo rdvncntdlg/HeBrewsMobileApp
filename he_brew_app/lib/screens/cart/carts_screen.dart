@@ -41,7 +41,7 @@ class _CartScreenState extends State<CartScreen> {
             const Padding(
               padding: EdgeInsets.all(8),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "My Cart",

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 import 'package:he_brew_app/models/product_model.dart';
 import 'package:he_brew_app/provider/add_to_cart_provider.dart';
+import 'package:he_brew_app/screens/detail/widget/custome_snackbar.dart';
 
 class AddToCart extends StatefulWidget {
   final Product product;
@@ -12,8 +13,6 @@ class AddToCart extends StatefulWidget {
 }
 
 class _AddToCartState extends State<AddToCart> {
-  int currentIndex = 1;
-
   @override
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
@@ -25,72 +24,12 @@ class _AddToCartState extends State<AddToCart> {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         alignment: Alignment.center,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    if (currentIndex != 1) {
-                      setState(() {
-                        currentIndex--;
-                      });
-                    }
-                  },
-                  iconSize: 24,
-                  icon: const Icon(
-                    Icons.remove,
-                    color: primaryColor,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                Text(
-                  currentIndex.toString(),
-                  style: const TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.bold,
-                    color: primaryColor,
-                    fontSize: 24,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      currentIndex++;
-                    });
-                  },
-                  iconSize: 24,
-                  icon: const Icon(
-                    Icons.add,
-                    color: primaryColor,
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.white, width: 2),
-              ),
-            ),
             GestureDetector(
               onTap: () {
                 provider.toggleFavorite(widget.product);
-                const snackBar = SnackBar(
-                  content: Text(
-                    "Successfully added!",
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                showCustomSnackbar(context, "Successfully Added");
               },
               child: Container(
                 height: 55,
@@ -99,7 +38,7 @@ class _AddToCartState extends State<AddToCart> {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: const EdgeInsets.symmetric(horizontal: 160),
                 child: const Text(
                   "Add to Cart",
                   style: TextStyle(

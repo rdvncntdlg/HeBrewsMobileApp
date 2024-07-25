@@ -10,9 +10,10 @@ class CheckOutBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
     final isCartEmpty = provider.cart.isEmpty;
-    
+
     return Container(
       height: 300,
+      margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -87,41 +88,42 @@ class CheckOutBox extends StatelessWidget {
               minimumSize: const Size(double.infinity, 55),
             ),
             onPressed: isCartEmpty // Disable the button if the cart is empty
-              ? null
-              : () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('Confirm Order'),
-                  content:
-                      const Text('Are you sure you want to place this order?'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context); // Close the dialog
-                      },
-                      child: const Text('No'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Generate a random order number for the example
-                        final orderNumber =
-                            DateTime.now().millisecondsSinceEpoch.toString();
-                        Navigator.pop(context); // Close the dialog
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                OrderSuccessScreen(orderNumber: orderNumber),
+                ? null
+                : () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Confirm Order'),
+                        content: const Text(
+                            'Are you sure you want to place this order?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context); // Close the dialog
+                            },
+                            child: const Text('No'),
                           ),
-                        );
-                      },
-                      child: const Text('Yes'),
-                    ),
-                  ],
-                ),
-              );
-            },
+                          TextButton(
+                            onPressed: () {
+                              // Generate a random order number for the example
+                              final orderNumber = DateTime.now()
+                                  .millisecondsSinceEpoch
+                                  .toString();
+                              Navigator.pop(context); // Close the dialog
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OrderSuccessScreen(
+                                      orderNumber: orderNumber),
+                                ),
+                              );
+                            },
+                            child: const Text('Yes'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
             child: const Text(
               "Order Now",
               style: TextStyle(
