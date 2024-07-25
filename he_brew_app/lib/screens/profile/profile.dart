@@ -1,3 +1,4 @@
+import 'package: he_brew_app/screen/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 
@@ -35,24 +36,56 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16), // Space between username and image
 
-          // Circular Image
-
-          const SizedBox(height: 16), // Space between image and list
-
           // List
           Expanded(
             child: ListView(
-              children: List.generate(10, (index) {
-                return ListTile(
-                  leading: const Icon(Icons.person),
-                  title: Text('Item ${index + 1}'),
-                  subtitle: Text('Subtitle ${index + 1}'),
-                );
-              }),
+              padding: const EdgeInsets.all(16.0),
+              children: [
+                _buildFeatureBox(
+                  icon: Icons.payment,
+                  title: 'Payment Methods',
+                  subtitle: 'Manage your payment options',
+                  onTap: () {
+                    // Navigate to Payment Methods Screen
+                  },
+                ),
+                const SizedBox(height: 16), // Space between boxes
+                _buildFeatureBox(
+                  icon: Icons.location_on,
+                  title: 'Address',
+                  subtitle: 'Manage your addresses',
+                  onTap: () {
+                    // Navigate to Address Screen
+                  },
+                ),
+                const SizedBox(height: 16), // Space between boxes
+                _buildFeatureBox(
+                  icon: Icons.shopping_bag,
+                  title: 'My Orders',
+                  subtitle: 'View your order history',
+                  onTap: () {
+                    // Navigate to My Orders Screen
+                  },
+                ),
+                const SizedBox(height: 16), // Space between boxes
+                _buildFeatureBox(
+                  icon: Icons.logout,
+                  title: 'Log Out',
+                  onTap: () {
+                    _handleLogout(context);
+                  },
+                ),
+              ],
             ),
           ),
         ],
       ),
     );
   }
-}
+
+  void _handleLogout(BuildContext context) {
+    // Perform any necessary cleanup, such as clearing user data
+    // Navigate to the sign-in screen and clear the navigation stack
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPage
