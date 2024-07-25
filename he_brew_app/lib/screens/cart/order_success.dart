@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:he_brew_app/screens/nav_bar.dart'; // Import the HomeScreen
 
 class OrderSuccessScreen extends StatelessWidget {
   const OrderSuccessScreen({super.key, required this.orderNumber});
@@ -35,6 +36,17 @@ class OrderSuccessScreen extends StatelessWidget {
                   fontFamily: 'Poppins',
                   fontSize: 18,
                 ),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BottomNavBar()),
+                    (Route<dynamic> route) => false,
+                  );
+                },
+                child: const Text('Exit'),
               ),
             ],
           ),

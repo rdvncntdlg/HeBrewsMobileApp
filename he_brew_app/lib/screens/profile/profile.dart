@@ -1,4 +1,4 @@
-import 'package:he_brew_app/screens/login/login_screen.dart';
+import 'package:he_brew_app/screens/login/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 
@@ -94,11 +94,10 @@ class ProfileScreen extends StatelessWidget {
   }
 
   void _handleLogout(BuildContext context) {
-    // Perform any necessary cleanup, such as clearing user data
-    // Navigate to the sign-in screen and clear the navigation stack
+    // Navigate to the welcome screen and clear the navigation stack
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
+      MaterialPageRoute(builder: (context) => WelcomeScreen()),
       (Route<dynamic> route) => false,
     );
   }
