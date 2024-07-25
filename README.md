@@ -1,4 +1,5 @@
 The Hebrews Mobile App is designed to provide users with a seamless and efficient ordering experience. Whether you're a new user or a returning customer, our app offers a comprehensive set of features to enhance your shopping journey. With an intuitive interface and robust functionality, the Hebrews Mobile App allows you to effortlessly browse products, manage your cart, view order history, and update your profile, including payment methods and addresses.
+
 Features
 Logging In/Signing In
 Users can create a new account or log in to an existing account using their credentials.
