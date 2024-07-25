@@ -33,17 +33,18 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 ![Log in](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/8e12c00344947261c0fbfe05c1d975203a58e9f6/log_in.jfif)
 
 ### Home Page
-![Home Page](https://github.com/your_username/your_repo/raw/main/he_brew/home_page/jfif)
+![Home Page](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/home_page.jfif)
 
-### Product Listing
-![Product Listing](https://i.imgur.com/product_listing_image.png)
+### Favorites
+![Favorites](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/favorites.jfif)
 
 ### Cart
-![Cart](https://i.imgur.com/cart_image.png)
+![Cart](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/cart.jfif)
+
 
 ### Order History
-![Order History](https://i.imgur.com/order_history_image.png)
+![Order History](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/order_history.jfif)
 
 ### Profile Management
-![Profile Management](https://i.imgur.com/profile_management_image.png)
+![Profile](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/aafa67564e231d8e135a21ecf515c2be5993e4bd/profile.jfif)
 
