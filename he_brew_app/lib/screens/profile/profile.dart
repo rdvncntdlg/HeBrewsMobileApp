@@ -1,4 +1,4 @@
-import 'package: he_brew_app/screen/login/login_screen.dart';
+import 'package:he_brew_app/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:he_brew_app/constants.dart';
 
@@ -83,9 +83,23 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildFeatureBox({required IconData icon, required String title, String? subtitle, required VoidCallback onTap}) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      subtitle: subtitle != null ? Text(subtitle) : null,
+      trailing: const Icon(Icons.arrow_forward_ios),
+      onTap: onTap,
+    );
+  }
+
   void _handleLogout(BuildContext context) {
     // Perform any necessary cleanup, such as clearing user data
     // Navigate to the sign-in screen and clear the navigation stack
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPage
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+      (Route<dynamic> route) => false,
+    );
+  }
+}
