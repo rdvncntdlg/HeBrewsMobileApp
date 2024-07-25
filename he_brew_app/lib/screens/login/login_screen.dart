@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true, // Add this line
       appBar: AppBar(
         backgroundColor: primaryColor,
         leading: IconButton(
@@ -57,18 +58,19 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Container(
         color: primaryColor,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Center(
-              child: Image(
-                image: AssetImage('images/logo-white.png'),
-                height: 300.0,
-                width: 300.0,
+        child: SingleChildScrollView(
+          // Wrap Column with SingleChildScrollView
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Center(
+                child: Image(
+                  image: AssetImage('images/logo-white.png'),
+                  height: 300.0,
+                  width: 300.0,
+                ),
               ),
-            ),
-            Expanded(
-              child: Container(
+              Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -230,8 +232,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
