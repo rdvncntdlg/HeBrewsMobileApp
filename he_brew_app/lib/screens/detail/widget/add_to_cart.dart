@@ -21,34 +21,35 @@ class _AddToCartState extends State<AddToCart> {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         height: 85,
-        padding: const EdgeInsets.symmetric(horizontal: 15),
         alignment: Alignment.center,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: () {
-                provider.toggleFavorite(widget.product);
-                showCustomSnackbar(context, "Successfully Added");
-              },
-              child: Container(
-                height: 55,
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 160),
-                child: const Text(
-                  "Add to Cart",
-                  style: TextStyle(
+            Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  provider.toggleFavorite(widget.product);
+                  showCustomSnackbar(context, "Successfully Added");
+                },
+                child: Container(
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "Add to Cart",
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20),
+                      fontSize: 20,
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
