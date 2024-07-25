@@ -5,8 +5,8 @@ import 'package:he_brew_app/screens/login/login_screen.dart';
 import 'package:he_brew_app/screens/login/reg_screen.dart';
 import 'package:he_brew_app/screens/nav_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:he_brew_app/screens/login/welcome_screen.dart';
+import 'package:he_brew_app/theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -23,9 +23,7 @@ class MainApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            textTheme: GoogleFonts.mulishTextTheme(),
-          ),
+          theme: appTheme,
           initialRoute: '/',
           routes: {
             '/': (context) => const WelcomeScreen(),

@@ -1,7 +1,7 @@
-import 'package:he_brew_app/constants.dart';
+import 'package:he_brew_app/theme.dart';
 import 'package:he_brew_app/provider/add_to_cart_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/screens/cart/order_success.dart'; // Import the OrderSuccessScreen
+import 'package:he_brew_app/screens/cart/order_success.dart';
 
 class CheckOutBox extends StatelessWidget {
   const CheckOutBox({super.key});

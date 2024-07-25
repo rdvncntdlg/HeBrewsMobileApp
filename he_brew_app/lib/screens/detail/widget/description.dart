@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/constants.dart';
+import 'package:he_brew_app/theme.dart';
 
 class Description extends StatelessWidget {
   final String description;

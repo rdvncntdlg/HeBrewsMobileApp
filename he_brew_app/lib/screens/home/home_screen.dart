@@ -4,7 +4,7 @@ import 'package:he_brew_app/screens/home/widget/home_app_bar.dart';
 import 'package:he_brew_app/screens/home/widget/search_bar.dart';
 import 'package:he_brew_app/models/category.dart';
 import 'package:he_brew_app/models/product_model.dart';
-import 'package:he_brew_app/constants.dart';
+import 'package:he_brew_app/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {

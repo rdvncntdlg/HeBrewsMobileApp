@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/screens/profile/widgets/add_payment_method.dart'; // Import your AddPaymentMethodScreen
+import 'package:he_brew_app/screens/profile/widgets/add_payment_method.dart'; 
 
 class PaymentMethodsScreen extends StatelessWidget {
   const PaymentMethodsScreen({super.key});
