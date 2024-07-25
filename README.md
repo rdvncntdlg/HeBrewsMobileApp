@@ -29,7 +29,7 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 - **Log Out:** Users can log out of their account, which will redirect them to the sign-in screen.
 
 ## Screenshots
-### Log in/Sign up Page
+### Log in/Sign in Page
 ![Log in](https://github.com/rdvncntdlg/HeBrewsMobileApp/raw/8e12c00344947261c0fbfe05c1d975203a58e9f6/log_in.jfif)
 
 ### Home Page
