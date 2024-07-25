@@ -13,17 +13,35 @@ The Hebrews Mobile App is designed to provide users with a seamless and efficien
 - Easy navigation and search functionality to find specific products.
 
 ### Product Management
-- **Adding to Cart**: Users can add products to their cart directly from the product listing or detail pages.
-- **Editing Cart**: Users can update quantities or remove items from their cart.
-- **Deleting from Cart**: Users can delete items from their cart.
-- **Adding Favorite Products**: Users can mark products as favorites for quick access later.
+- **Adding to Cart:** Users can add products to their cart directly from the product listing or detail pages.
+- **Editing Cart:** Users can update quantities or remove items from their cart.
+- **Deleting from Cart:** Users can delete items from their cart.
+- **Adding Favorite Products:** Users can mark products as favorites for quick access later.
 
 ### Order Management
-- **Viewing Cart**: Users can view the items they have added to their cart, including the total number of products and the total amount.
-- **Order History**: Users can view a history of their past orders, including details of each order.
+- **Viewing Cart:** Users can view the items they have added to their cart, including the total number of products and the total amount.
+- **Order History:** Users can view a history of their past orders, including details of each order.
 
 ### Profile Management
-- **Payment Methods**: Users can manage their payment options, including adding, editing, and removing payment methods.
-- **Address**: Users can manage their addresses, including adding, editing, and removing addresses.
-- **My Orders**: Users can view a summary of their orders.
-- **Log Out**: Users can log out of their account, which will redirect them to the sign-in screen.
+- **Payment Methods:** Users can manage their payment options, including adding, editing, and removing payment methods.
+- **Address:** Users can manage their addresses, including adding, editing, and removing addresses.
+- **My Orders:** Users can view a summary of their orders.
+- **Log Out:** Users can log out of their account, which will redirect them to the sign-in screen.
+
+## Screenshots
+
+### Home Page
+![Home Page](https://github.com/your_username/your_repo/raw/main/he_brew/home_page/jfif)
+
+### Product Listing
+![Product Listing](https://i.imgur.com/product_listing_image.png)
+
+### Cart
+![Cart](https://i.imgur.com/cart_image.png)
+
+### Order History
+![Order History](https://i.imgur.com/order_history_image.png)
+
+### Profile Management
+![Profile Management](https://i.imgur.com/profile_management_image.png)
+
