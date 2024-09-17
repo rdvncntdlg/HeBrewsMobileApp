@@ -1,36 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:he_brew_app/api_service.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
-
-  @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  final ApiService _apiService = ApiService('http://localhost:3000'); // Update with your server URL
-  String _message = 'Loading...';
-
-  @override
-  void initState() {
-    super.initState();
-    _fetchData();
-  }
-
-  Future<void> _fetchData() async {
-    try {
-      final data = await _apiService.fetchData();
-      setState(() {
-        _message = data['message'] ?? 'No message available';
-      });
-    } catch (e) {
-      setState(() {
-        _message = 'Failed to load data';
-      });
-      print('Error fetching data: $e');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +23,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 width: 400.0,
               ),
             ),
-            Text(
-              _message,
-              style: const TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 30),
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/login');
